@@ -11,11 +11,15 @@
 					<a href="/"><svg class="logo"><use xlink:href="#logo"></use></svg></a>
 				</div>
 				<nav>
-<?php $navItems = wp_get_nav_menu_items('Main Menu'); 
-foreach($navItems as $item) { ?>
+<?php 
+$navItems = wp_get_nav_menu_items('Main Menu'); 
+if(count($navItems) > 0) {
+	foreach($navItems as $item) { ?>
 					<div class="nav-item"><a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a></div>
 <?php 
-} ?>
+	} 
+} 
+?>
 					<svg id="mobile-nav-trigger"><use xlink:href="#bars"></use></svg>
 				</nav>
 			</div>
